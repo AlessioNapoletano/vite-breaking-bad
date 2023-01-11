@@ -1,5 +1,7 @@
 <script>
+//sotto component necessario per creare una carta
 import CardComponent from './CardComponent.vue';
+
 import { store } from '../store.js'
 import axios from 'axios';
 
@@ -49,14 +51,8 @@ export default {
             </h1>
         </div>
 
-        <article v-for="card in store.cardList" class="mx-4 my-3">
-            <div class="card" style="width: 18rem;">
-                <img :src="card.card_images[0].image_url" :alt="card.name">
-                <div class="card-body">
-                    <h5 class="card-title text-center">{{ card.name.toUpperCase() }}</h5>
-                    <p class="card-text text-center">{{ card.archetype }}</p>
-                </div>
-            </div>
+        <article class="d-flex flex-wrap justify-content-center">
+            <CardComponent class="m-2" v-for="card in store.cardList" :card="card" />
         </article>
 
     </div>
