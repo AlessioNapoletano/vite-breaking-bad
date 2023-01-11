@@ -43,11 +43,17 @@ export default {
 
 <template>
     <div class="wrapper d-flex flex-wrap justify-content-center py-5">
+        <div class="cards-number w-100 d-flex justify-content-center">
+            <h1 class="text-center p-2">
+                Numero di carte trovate: {{ store.cardList.length }}
+            </h1>
+        </div>
+
         <article v-for="card in store.cardList" class="mx-4 my-3">
             <div class="card" style="width: 18rem;">
                 <img :src="card.card_images[0].image_url" :alt="card.name">
                 <div class="card-body">
-                    <h5 class="card-title text-center">{{ card.name }}</h5>
+                    <h5 class="card-title text-center">{{ card.name.toUpperCase() }}</h5>
                     <p class="card-text text-center">{{ card.archetype }}</p>
                 </div>
             </div>
@@ -59,8 +65,16 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+
 .wrapper {
-    background-color: #bf9248;
+    background-color: $main-bg-color;
+
+    h1 {
+        border-radius: 20px;
+        background-color: black;
+        color: white;
+    }
 
     .card-body {
         height: 100px;

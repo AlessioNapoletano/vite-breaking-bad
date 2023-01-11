@@ -1,7 +1,18 @@
 <script>
+import { store } from '../store.js';
 export default {
     name: 'CardComponent',
 
+    props: {
+        type: Object,
+        required: true,
+    },
+
+    data() {
+        return {
+            store,
+        }
+    }
 }
 </script>
 
