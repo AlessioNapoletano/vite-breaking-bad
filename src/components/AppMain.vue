@@ -45,7 +45,7 @@ export default {
 
     <div v-for="card in store.cardList">
         <p>
-            {{ card.name }}
+            {{ card.card_images.image_url }}
         </p>
 
 
